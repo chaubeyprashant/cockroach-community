@@ -2,13 +2,15 @@ plugins {
   alias(libs.plugins.android.application)
   alias(libs.plugins.compose.compiler)
   alias(libs.plugins.kotlin.serialization)
+  alias(libs.plugins.hilt)
+  alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "com.example.offlineconnect"
+    namespace = "com.cockroachcommunity.app"
     compileSdk = 36
     defaultConfig {
-        applicationId = "com.example.offlineconnect"
+        applicationId = "com.cockroachcommunity.app"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -61,6 +63,7 @@ dependencies {
   implementation(libs.androidx.compose.ui)
   implementation(libs.androidx.compose.ui.tooling.preview)
   implementation(libs.androidx.compose.material3)
+  implementation(libs.androidx.compose.material.icons.extended)
   // Tooling
   debugImplementation(libs.androidx.compose.ui.tooling)
   // Instrumented tests
@@ -81,4 +84,25 @@ dependencies {
   implementation(libs.androidx.navigation3.ui)
   implementation(libs.androidx.navigation3.runtime)
   implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+  implementation(libs.androidx.navigation.compose)
+
+  // Hilt
+  implementation(libs.hilt.android)
+  ksp(libs.hilt.compiler)
+  implementation(libs.androidx.hilt.navigation.compose)
+
+  // Room
+  implementation(libs.room.runtime)
+  implementation(libs.room.ktx)
+  ksp(libs.room.compiler)
+
+  // DataStore
+  implementation(libs.datastore.preferences)
+
+  // Serialization
+  implementation(libs.kotlinx.serialization.json)
+  
+  // WebRTC
+  implementation(libs.webrtc)
+  implementation("com.google.android.gms:play-services-nearby:19.3.0")
 }
