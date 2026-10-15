@@ -26,16 +26,6 @@ class CockroachCommunityService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle(getString(com.cockroachcommunity.app.R.string.app_name))
-            .setContentText("Mesh active · Broadcasting friendly profile")
-            .setSmallIcon(android.R.drawable.stat_sys_data_bluetooth)
-            .setPriority(NotificationCompat.PRIORITY_LOW)
-            .setOngoing(true)
-            .build()
-
-        startForeground(NOTIFICATION_ID, notification)
-        
         try {
             nearbyConnectionsManager.startAdvertising()
         } catch (e: Exception) {

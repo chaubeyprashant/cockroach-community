@@ -53,11 +53,11 @@ class MainActivity : ComponentActivity() {
 
             LaunchedEffect(permissionsGranted) {
                 if (permissionsGranted) {
-                    val intent = android.content.Intent(this@MainActivity, com.cockroachcommunity.app.core.service.CockroachCommunityService::class.java)
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        startForegroundService(intent)
-                    } else {
+                    try {
+                        val intent = android.content.Intent(this@MainActivity, com.cockroachcommunity.app.core.service.CockroachCommunityService::class.java)
                         startService(intent)
+                    } catch (e: Exception) {
+                        android.util.Log.e("MainActivity", "Failed to start service", e)
                     }
                 }
             }
