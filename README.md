@@ -1,10 +1,10 @@
-# Cockroach Community
+# Cockroach Janta Party
 
 <p align="center">
-  <img src="app_icon.png" width="160" alt="Cockroach Community App Icon" style="border-radius: 28px;" />
+  <img src="app_icon.png" width="160" alt="Cockroach Janta Party App Icon" style="border-radius: 28px;" />
 </p>
 
-Cockroach Community is an offline peer-to-peer (P2P) mesh communication Android application. It enables devices to discover each other, chat, share files, and place voice/video calls completely offline using Wi-Fi Direct, Bluetooth, and local mesh networking.
+Cockroach Janta Party is an offline peer-to-peer (P2P) mesh communication Android application. It enables devices to discover each other, chat, share files, and place voice/video calls completely offline using Wi-Fi Direct, Bluetooth, and local mesh networking.
 
 ## Features
 - **100% Offline P2P Mesh**: Discover nearby devices without internet access.

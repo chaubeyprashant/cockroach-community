@@ -11,3 +11,6 @@ local.properties
 *.jks
 *.keystore
 keystore.properties
+
+# Firebase client config (project-specific; keep out of the repo)
+app/google-services.json

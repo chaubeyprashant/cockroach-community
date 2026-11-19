@@ -9,6 +9,10 @@ plugins {
   alias(libs.plugins.ksp)
 }
 
+if (file("google-services.json").exists()) {
+    apply(plugin = "com.google.gms.google-services")
+}
+
 android {
     namespace = "com.cockroachcommunity.app"
     compileSdk = 36
@@ -16,8 +20,8 @@ android {
         applicationId = "com.cockroachcommunity.app"
         minSdk = 24
         targetSdk = 36
-        versionCode = 3
-        versionName = "1.0.2"
+        versionCode = 8
+        versionName = "2.0.0"
     }
 
     val keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -111,18 +115,26 @@ dependencies {
   ksp(libs.hilt.compiler)
   implementation(libs.androidx.hilt.navigation.compose)
 
-  // Room
-  implementation(libs.room.runtime)
-  implementation(libs.room.ktx)
-  ksp(libs.room.compiler)
-
   // DataStore
   implementation(libs.datastore.preferences)
 
   // Serialization
   implementation(libs.kotlinx.serialization.json)
   
-  // WebRTC
-  implementation(libs.webrtc)
-  implementation("com.google.android.gms:play-services-nearby:19.3.0")
+  // Firebase: Auth (Google + anonymous), Firestore, Storage
+  implementation(platform(libs.firebase.bom))
+  implementation(libs.firebase.auth)
+  implementation(libs.firebase.firestore)
+  implementation(libs.firebase.storage)
+
+  // Location for the complaint form
+  implementation(libs.play.services.location)
+
+  // Images
+  implementation(libs.coil.compose)
+  implementation(libs.coil.network.okhttp)
+  implementation(libs.kotlinx.coroutines.play.services)
+  implementation(libs.androidx.credentials)
+  implementation(libs.androidx.credentials.play.services)
+  implementation(libs.googleid)
 }
